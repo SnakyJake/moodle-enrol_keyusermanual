@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/user/selector/lib.php');
 require_once($CFG->dirroot . '/enrol/locallib.php');
-
+require_once($CFG->dirroot.'/local/keyuser/locallib.php');
 
 /**
  * Enrol candidates.
@@ -49,7 +49,7 @@ class enrol_keyusermanual_potential_participant extends user_selector_base {
         // By default wherecondition retrieves all users except the deleted, not confirmed and guest.
         list($wherecondition, $params) = $this->search_sql($search, 'u');
 
-        keyuser_user_append_where($wherecondition,$params,'u');
+        \keyuser_user_append_where($wherecondition,$params,'u');
 
         $params['enrolid'] = $this->enrolid;
 
@@ -117,7 +117,7 @@ class enrol_keyusermanual_current_participant extends user_selector_base {
         // By default wherecondition retrieves all users except the deleted, not confirmed and guest.
         list($wherecondition, $params) = $this->search_sql($search, 'u');
 
-        keyuser_user_append_where($wherecondition,$params,'u');
+        \keyuser_user_append_where($wherecondition,$params,'u');
 
         $params['enrolid'] = $this->enrolid;
 
