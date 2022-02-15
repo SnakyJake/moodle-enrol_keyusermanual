@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2021121600;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 20211210;        
+$plugin->requires  = 2021051700;        
 $plugin->component = 'enrol_keyusermanual';    
 $plugin->dependencies = array(
     'local_keyuser' => 2022021600,   // Keyuser-Plugin must be installed.
