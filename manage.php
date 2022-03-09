@@ -24,7 +24,7 @@
 
 require('../../config.php');
 require_once($CFG->dirroot.'/enrol/keyusermanual/locallib.php');
-require_once($CFG->rootdir.'/local/keyuser/lib/accesslib.php');
+require_once($CFG->dirroot.'/local/keyuser/lib/accesslib.php');
 
 $enrolid      = required_param('enrolid', PARAM_INT);
 $roleid       = optional_param('roleid', -1, PARAM_INT);
