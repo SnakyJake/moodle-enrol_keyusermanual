@@ -27,6 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/formslib.php');
+require_once($CFG->rootdir.'/local/keyuser/lib/accesslib.php');
 
 class enrol_keyusermanual_enrol_users_form extends moodleform {
 
@@ -116,7 +117,7 @@ class enrol_keyusermanual_enrol_users_form extends moodleform {
             }
         }
 
-        $roles = get_assignable_roles($context, ROLENAME_BOTH);
+        $roles = keyuser_get_assignable_roles($context, ROLENAME_BOTH);
         $mform->addElement('select', 'roletoassign', get_string('assignrole', 'enrol_keyusermanual'), $roles);
         $mform->setDefault('roletoassign', $instance->roleid);
 

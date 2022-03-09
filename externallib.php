@@ -34,6 +34,7 @@ require_once($CFG->dirroot.'/enrol/locallib.php');
 require_once($CFG->dirroot.'/user/lib.php');
 
 require_once($CFG->dirroot.'/local/keyuser/locallib.php');
+require_once($CFG->rootdir.'/local/keyuser/lib/accesslib.php');
 
 class keyuser_course_enrolment_manager extends course_enrolment_manager {
     /**
@@ -235,7 +236,7 @@ class enrol_keyusermanual_external extends external_api {
             require_capability('enrol/keyusermanual:enrol', $context);
 
             // Throw an exception if user is not able to assign the role.
-            $roles = get_assignable_roles($context);
+            $roles = keyuser_get_assignable_roles($context);
             if (!array_key_exists($enrolment['roleid'], $roles)) {
                 $errorparams = new stdClass();
                 $errorparams->roleid = $enrolment['roleid'];

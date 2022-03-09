@@ -34,6 +34,8 @@ require_once($CFG->dirroot.'/enrol/keyusermanual/locallib.php');
 require_once($CFG->dirroot.'/cohort/lib.php');
 require_once($CFG->dirroot . '/enrol/keyusermanual/classes/enrol_users_form.php');
 
+require_once($CFG->rootdir.'/local/keyuser/lib/accesslib.php');
+
 $id      = required_param('id', PARAM_INT); // Course id.
 $action  = required_param('action', PARAM_ALPHANUMEXT);
 
@@ -104,7 +106,7 @@ switch ($action) {
             if (!has_capability('moodle/role:assign', $context)) {
                 throw new enrol_ajax_exception('assignnotpermitted');
             }
-            if (!array_key_exists($roleid, get_assignable_roles($context, ROLENAME_ALIAS, false))) {
+            if (!array_key_exists($roleid, keyuser_get_assignable_roles($context, ROLENAME_ALIAS, false))) {
                 throw new enrol_ajax_exception('invalidrole');
             }
         }

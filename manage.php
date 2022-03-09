@@ -24,6 +24,7 @@
 
 require('../../config.php');
 require_once($CFG->dirroot.'/enrol/keyusermanual/locallib.php');
+require_once($CFG->rootdir.'/local/keyuser/lib/accesslib.php');
 
 $enrolid      = required_param('enrolid', PARAM_INT);
 $roleid       = optional_param('roleid', -1, PARAM_INT);
@@ -52,7 +53,7 @@ if (!$canenrol and !$canunenrol) {
 if ($roleid < 0) {
     $roleid = $instance->roleid;
 }
-$roles = get_assignable_roles($context);
+$roles = keyuser_get_assignable_roles($context);
 $roles = array('0'=>get_string('none')) + $roles;
 
 if (!isset($roles[$roleid])) {
