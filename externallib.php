@@ -34,7 +34,7 @@ require_once($CFG->dirroot.'/enrol/locallib.php');
 require_once($CFG->dirroot.'/user/lib.php');
 
 require_once($CFG->dirroot.'/local/keyuser/locallib.php');
-require_once($CFG->rootdir.'/local/keyuser/lib/accesslib.php');
+require_once($CFG->dirroot.'/local/keyuser/lib/accesslib.php');
 
 class keyuser_course_enrolment_manager extends course_enrolment_manager {
     /**
