@@ -27,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/formslib.php');
-require_once($CFG->rootdir.'/local/keyuser/lib/accesslib.php');
+require_once($CFG->dirroot.'/local/keyuser/lib/accesslib.php');
 
 class enrol_keyusermanual_enrol_users_form extends moodleform {
 
